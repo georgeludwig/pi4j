@@ -6,6 +6,7 @@ import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.pi4j.model.ActorBasic;
 import org.pi4j.model.ActorGraph;
 import org.pi4j.model.ActorTopic;
 import org.pi4j.model.Influential;
@@ -15,7 +16,7 @@ import org.pi4j.service.PiParam;
 
 public class TestPiImpl {
 	
-	public static final String API_KEY="ryspmehfb862eg7t3ubhfecf"; // 6b prod api key!!
+	public static final String API_KEY="jp7x9ka4h744bzb42wt5t8rp"; // pi4j test api key
 
     private PiImpl pimpl = new PiImpl(API_KEY);
     private static String screenName="georgeludwig";
@@ -30,38 +31,38 @@ public class TestPiImpl {
 
     @Test
     public void testGetActorBasic() throws Exception {
-//    	PiParam piParam=new PiParam();
-//    	piParam.twitter_screen_name=screenName;
-//    	ActorBasic result = pimpl.getActorBasic(piParam);
-//        Assert.assertTrue(result.getTwitter().getId()==twitter_id);
-//        
-//        piParam=new PiParam();
-//    	piParam.peerindex_id=peerindex_id;
-//    	result = pimpl.getActorBasic(piParam);
-//        Assert.assertTrue(result.getTwitter().getId()==twitter_id);
-//        
-//        piParam=new PiParam();
-//    	piParam.twitter_id=twitter_id;
-//    	result = pimpl.getActorBasic(piParam);
-//        Assert.assertTrue(result.getPeerindex_id().equals(peerindex_id));
+    	PiParam piParam=new PiParam();
+    	piParam.twitter_screen_name=screenName;
+    	ActorBasic result = pimpl.getActorBasic(piParam);
+        Assert.assertTrue(result.getTwitter().getId()==twitter_id);
+        
+        piParam=new PiParam();
+    	piParam.peerindex_id=peerindex_id;
+    	result = pimpl.getActorBasic(piParam);
+        Assert.assertTrue(result.getTwitter().getId()==twitter_id);
+        
+        piParam=new PiParam();
+    	piParam.twitter_id=twitter_id;
+    	result = pimpl.getActorBasic(piParam);
+        Assert.assertTrue(result.getPeerindex_id().equals(peerindex_id));
     }
     
     @Test
     public void testGetActorExtended() throws Exception {
-//    	PiParam piParam=new PiParam();
-//    	piParam.twitter_screen_name=screenName;
-//    	ActorBasic result = pimpl.getActorExtended(piParam);
-//        Assert.assertTrue(result.getTwitter().getId()==twitter_id);
-//        
-//        piParam=new PiParam();
-//    	piParam.peerindex_id=peerindex_id;
-//    	result = pimpl.getActorExtended(piParam);
-//        Assert.assertTrue(result.getTwitter().getId()==twitter_id);
-//        
-//        piParam=new PiParam();
-//    	piParam.twitter_id=twitter_id;
-//    	result = pimpl.getActorExtended(piParam);
-//        Assert.assertTrue(result.getPeerindex_id().equals(peerindex_id));
+    	PiParam piParam=new PiParam();
+    	piParam.twitter_screen_name=screenName;
+    	ActorBasic result = pimpl.getActorExtended(piParam);
+        Assert.assertTrue(result.getTwitter().getId()==twitter_id);
+        
+        piParam=new PiParam();
+    	piParam.peerindex_id=peerindex_id;
+    	result = pimpl.getActorExtended(piParam);
+        Assert.assertTrue(result.getTwitter().getId()==twitter_id);
+        
+        piParam=new PiParam();
+    	piParam.twitter_id=twitter_id;
+    	result = pimpl.getActorExtended(piParam);
+        Assert.assertTrue(result.getPeerindex_id().equals(peerindex_id));
     }
     
     @Test
@@ -76,8 +77,8 @@ public class TestPiImpl {
         piParam=new PiParam();
     	piParam.peerindex_id=peerindex_id;
     	result = pimpl.getActorTopic(piParam);
-    	int a=result.getTopics().size();
-    	int b=topicList.size();
+//    	int a=result.getTopics().size();
+//    	int b=topicList.size();
 //        Assert.assertTrue(result.getTopics().size()==topicList.size());
 //        Assert.assertTrue(result.getTopics().get(0).equals(topicList.get(0)));
         
@@ -96,6 +97,7 @@ public class TestPiImpl {
     	piParam.twitter_screen_name=screenName;
     	ActorGraph result = pimpl.getActorGraph(piParam);
         Assert.assertTrue(result.getPeerindex_id().equals(peerindex_id));
+        
         List<Influential>infBy=result.getInfluenced_by();
         List<Influential>inf=result.getInfluences();
         
